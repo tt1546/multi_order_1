@@ -18,8 +18,19 @@ option_id_list = [f"Option_{i}" for i in range(24)]
 option_id_input = st.selectbox("Option ID", options=option_id_list, index=0)
 amount = st.number_input("Amount (¥)", min_value=0.0, value=100.0)
 quantity = st.number_input("Quantity", min_value=1, value=1)
-label_price = st.number_input("Label Price (¥)", min_value=0.0, value=100.0)
-discount = st.number_input("Discount (0–1)", min_value=0.0, max_value=1.0, value=0.0)
+label_price_input = st.text_input("Label Price (¥)", value="100.00")
+discount_input = st.text_input("Discount (0–1)", value="0.00")
+
+# Convert to numeric with fallback
+try:
+    label_price = float(label_price_input)
+except:
+    label_price = 100.0  # default fallback
+
+try:
+    discount = float(discount_input)
+except:
+    discount = 0.0
 order_weekday = st.selectbox("Order Weekday", ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], index=0)
 order_hour = st.slider("Order Hour", min_value=0, max_value=23, value=12)
 is_weekend = st.checkbox("Is Weekend?", value=False)
