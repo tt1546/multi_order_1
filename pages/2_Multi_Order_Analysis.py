@@ -5,18 +5,7 @@ import plotly.express as px
 # Page config
 st.set_page_config(page_title="Multi Order Analysis", layout="wide")
 st.title("Multi Order Analysis")
-# Sidebar navigation with emoji icons
-with st.sidebar:
-    st.image("https://cdn-icons-png.flaticon.com/512/684/684908.png", width=80)
-    st.markdown("## Navigation")
-    st.page_link("app.py", label="🏠 Home")
-    st.page_link("pages/1_Customer_Clustering.py", label="👥 Customer Clustering")
-    st.page_link("pages/2_Multi_Order_Analysis.py", label="📊 Multi-Order Analysis")
-    st.page_link("pages/3_Temporal_Pattern_Exploration.py", label="📈 Temporal Pattern Exploration")
-    st.page_link("pages/4_Fulfillment_Cost_Analysis.py", label="📦 Fulfillment Cost")
-    st.page_link("pages/5_Model_Predictor.py", label="🤖 Predictor")
-    st.markdown("---")
-    st.caption("Built by Group 13")
+
 st.divider()
 
 # ---------------------------------------- #
