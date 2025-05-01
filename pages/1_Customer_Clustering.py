@@ -15,6 +15,7 @@ gmv_per_customer = pd.read_csv("data/gmv_per_customer.csv")
 segment_distribution = pd.read_csv("data/segment_distribution.csv")
 customer_profile = pd.read_csv("data/customer_profile.csv")
 hotzone_customers = pd.read_csv("data/hotzone_customers.csv")
+hotzone_customers['cluster'] = hotzone_customers['cluster'].astype(str)
 
 
 # Chart: fig1 - Multi-Order Ratio Distribution
