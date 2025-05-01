@@ -2,7 +2,7 @@ import streamlit as st
 
 # Main App Title and Introduction
 st.set_page_config(page_title="Multi-Order Dashboard", layout="wide", initial_sidebar_state="expanded")
-st.title("Multi-Order Analysis Dashboard (多单分析仪表盘)")
+st.title("Multi-Order Analysis Dashboard")
 
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/684/684908.png", width=80)
