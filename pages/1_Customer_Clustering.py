@@ -28,7 +28,7 @@ segment_distribution = pd.read_csv("data/segment_distribution.csv")
 customer_profile = pd.read_csv("data/customer_profile.csv")
 hotzone_customers = pd.read_csv("data/hotzone_customers.csv")
 
-st.divider()
+
 # Chart: fig1 - Multi-Order Ratio Distribution
 fig1 = px.histogram(
     multi_order_stats,
