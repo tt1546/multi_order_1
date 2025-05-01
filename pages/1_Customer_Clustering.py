@@ -207,6 +207,11 @@ fig4.update_layout(
     xaxis=dict(showgrid=True, gridcolor='lightgray'),
     yaxis=dict(showgrid=True, gridcolor='lightgray')
 )
+fig4.update_layout(
+    yaxis=dict(scaleanchor=None),
+    height=800,
+    width=800
+)
 st.plotly_chart(fig4, use_container_width=True)
 
 st.subheader("Cluster Summary Statistics")
