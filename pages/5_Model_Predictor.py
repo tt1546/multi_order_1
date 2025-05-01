@@ -69,23 +69,23 @@ input_features = pd.DataFrame([{
 # Cached model loader
 @st.cache_resource
 def load_model():
-    model = xgb.XGBClassifier()
-    model.load_model("models/xgb_model.json")
+    model = xgb.Booster()
+    model.load_model("xgb_model.json")
     return model
 
 model = load_model()
 
 # Predict
 if st.button("Predict"):
-    y_prob = model.predict_proba(input_features)[0][1]
-    y_pred = model.predict(input_features)[0]
+    dmatrix = xgb.DMatrix(input_features)
+    y_prob = model.predict(dmatrix)[0]
+    y_pred = int(y_prob >= 0.5)
 
     st.write(f"**Predicted Probability of Multi-Order:** {y_prob*100:.2f}% ({'Yes' if y_pred == 1 else 'No'} likelihood)")
     if y_pred == 1:
         st.success("The model predicts this order is likely to be a multi-order.")
     else:
         st.info("The model predicts this order is not likely to be a multi-order.")
-
 # ---------------------------- #
 # Section: Feature Importance
 # ---------------------------- #
