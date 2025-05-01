@@ -96,8 +96,9 @@ st.markdown("""
 To understand which features contribute most to the model's decisions and interpret predictive behavior.
 """)
 
-booster = model.get_booster()
+booster = model
 importance = booster.get_score(importance_type='weight')
+
 
 importance_df = pd.DataFrame({
     'feature': list(importance.keys()),
