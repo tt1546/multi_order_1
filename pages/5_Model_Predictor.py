@@ -70,7 +70,7 @@ input_features = pd.DataFrame([{
 @st.cache_resource
 def load_model():
     model = xgb.Booster()
-    model.load_model("path/to/model/xgb_model.json")
+    model.load_model("models/xgb_model.json")
     return model
 
 model = load_model()
