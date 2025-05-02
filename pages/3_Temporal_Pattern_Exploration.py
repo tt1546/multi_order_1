@@ -182,16 +182,23 @@ annual_stats.set_index("order_date", inplace=True)
 
 start_date = annual_stats.index.min()
 end_date = annual_stats.index.max()
-st.markdown("Select a date range to explore long-term multi-order ratio changes:")
-date_range = st.date_input(
-    "Select Date Range:",
-    value=(start_date, end_date),
-    min_value=start_date,
-    max_value=end_date
-)
 
-filtered_stats = annual_stats.loc[date_range[0]:date_range[1]] if isinstance(date_range, tuple) else annual_stats.copy()
 
+apply_filter = st.checkbox("Enable Date Filter", value=True)
+
+
+if apply_filter:
+    date_range = st.date_input(
+        "Select Date Range:",
+        value=(start_date, end_date),
+        min_value=start_date,
+        max_value=end_date
+    )
+
+    filtered_stats = annual_stats.loc[date_range[0]:date_range[1]] if isinstance(date_range, tuple) else annual_stats.copy()
+else:
+
+    filtered_stats = annual_stats.copy()
 fig = go.Figure()
 
 fig.add_trace(go.Scatter(
