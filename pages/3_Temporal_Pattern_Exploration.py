@@ -195,10 +195,15 @@ if apply_filter:
         max_value=end_date
     )
 
-    filtered_stats = annual_stats.loc[date_range[0]:date_range[1]] if isinstance(date_range, tuple) else annual_stats.copy()
-else:
+    if isinstance(date_range, tuple) and len(date_range) == 2:
 
+        filtered_stats = annual_stats.loc[date_range[0]:date_range[1]]
+    else:
+        st.warning("Please select both start and end dates.")
+        filtered_stats = pd.DataFrame()  
+else:
     filtered_stats = annual_stats.copy()
+
 fig = go.Figure()
 
 fig.add_trace(go.Scatter(
