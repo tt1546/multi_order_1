@@ -200,9 +200,10 @@ if apply_filter:
         filtered_stats = annual_stats.loc[date_range[0]:date_range[1]]
     else:
         st.warning("Please select both start and end dates.")
-        filtered_stats = pd.DataFrame()  
+        filtered_stats = pd.DataFrame() 
 else:
     filtered_stats = annual_stats.copy()
+
 
 fig = go.Figure()
 
