@@ -1,3 +1,4 @@
+# streamlit: title = Home
 import streamlit as st
 
 # Main App Title and Introduction
