@@ -193,21 +193,25 @@ date_range = st.date_input(
 filtered_stats = annual_stats.loc[date_range[0]:date_range[1]] if isinstance(date_range, tuple) else annual_stats.copy()
 
 fig = go.Figure()
+
 fig.add_trace(go.Scatter(
     x=filtered_stats.index,
     y=filtered_stats["multiorder_ratio"],
     name="Daily Multi-Order Ratio",
-    line=dict(color="gray", width=2),
-    mode="lines"
+    line=dict(color="gray", width=1),
+    mode="lines",
+    opacity=0.5  
 ))
+
 if "multiorder_ratio_smooth" in filtered_stats.columns:
     fig.add_trace(go.Scatter(
         x=filtered_stats.index,
         y=filtered_stats["multiorder_ratio_smooth"],
         name="7-Day Moving Avg",
-        line=dict(color="orange", width=3, dash="dash"),
+        line=dict(color="orange", width=2),  
         mode="lines"
     ))
+
 
 fig.update_layout(
     title="Daily Multi-Order Ratio Over Time",
